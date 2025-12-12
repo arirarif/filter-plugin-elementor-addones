@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tire Filter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="filter-container">
+        <!-- Header Section -->
+        <div class="filter-header">
+            <!-- Vehicle Type Selector -->
+            <div class="vehicle-selector">
+                <div class="vehicle-option active">
+                    <input type="radio" id="vehicle-car" name="vehicle-type" value="car" checked>
+                    <label for="vehicle-car">
+                        <span class="vehicle-icon car-icon"></span>
+                        <span class="vehicle-label">CAR</span>
+                    </label>
+                </div>
+                <div class="vehicle-option">
+                    <input type="radio" id="vehicle-motorcycle" name="vehicle-type" value="motorcycle">
+                    <label for="vehicle-motorcycle">
+                        <span class="vehicle-icon motorcycle-icon"></span>
+                        <span class="vehicle-label">MOTORCYCLE</span>
+                    </label>
+                </div>
+                <div class="vehicle-option">
+                    <input type="radio" id="vehicle-transporter" name="vehicle-type" value="transporter">
+                    <label for="vehicle-transporter">
+                        <span class="vehicle-icon transporter-icon"></span>
+                        <span class="vehicle-label">TRANSPORTER</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Search Type Toggle -->
+            <div class="search-toggle">
+                <div class="help-icons">
+                    <button class="help-icon service-help" title="Service Partner Help">?</button>
+                    <button class="help-icon general-help" title="General Help">?</button>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="search-type-toggle" class="toggle-input">
+                    <label for="search-type-toggle" class="toggle-label">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text-left">By size</span>
+                        <span class="toggle-text-right">By car model</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tire Visualization -->
+        <div class="tire-display">
+            <div class="tire-graphic">
+                <svg class="tire-svg" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="90" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="2"/>
+                    <circle cx="100" cy="100" r="55" fill="#e0e0e0"/>
+                    <circle cx="100" cy="100" r="25" fill="#444"/>
+                    <path d="M 100 45 L 100 155" stroke="#999" stroke-width="3"/>
+                    <path d="M 45 100 L 155 100" stroke="#999" stroke-width="3"/>
+                    <path d="M 65 65 L 135 135" stroke="#999" stroke-width="3"/>
+                    <path d="M 135 65 L 65 135" stroke="#999" stroke-width="3"/>
+                </svg>
+                <div class="tire-size-text">205 / 55 R16</div>
+            </div>
+        </div>
+
+        <!-- Size Selection Form -->
+        <form class="size-form" id="tireSearchForm">
+            <div class="form-fields">
+                <div class="form-field">
+                    <label for="width">WIDTH</label>
+                    <select id="width" name="width">
+                        <option value="175">175</option>
+                        <option value="185">185</option>
+                        <option value="195">195</option>
+                        <option value="205" selected>205</option>
+                        <option value="215">215</option>
+                        <option value="225">225</option>
+                        <option value="235">235</option>
+                        <option value="245">245</option>
+                        <option value="255">255</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="height">HEIGHT</label>
+                    <select id="height" name="height">
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="50">50</option>
+                        <option value="55" selected>55</option>
+                        <option value="60">60</option>
+                        <option value="65">65</option>
+                        <option value="70">70</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="customs">CUSTOMS</label>
+                    <select id="customs" name="customs">
+                        <option value="15">15</option>
+                        <option value="16" selected>16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Season Selector -->
+            <div class="season-selector">
+                <div class="season-option">
+                    <input type="radio" id="season-summer" name="season" value="summer">
+                    <label for="season-summer" class="season-label summer">
+                        <span class="season-icon summer-icon"></span>
+                    </label>
+                </div>
+                <div class="season-option">
+                    <input type="radio" id="season-winter" name="season" value="winter" checked>
+                    <label for="season-winter" class="season-label winter">
+                        <span class="season-icon winter-icon"></span>
+                    </label>
+                </div>
+                <div class="season-option">
+                    <input type="radio" id="season-allseason" name="season" value="allseason">
+                    <label for="season-allseason" class="season-label allseason">
+                        <span class="season-icon allseason-icon"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">FIND TIRES</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

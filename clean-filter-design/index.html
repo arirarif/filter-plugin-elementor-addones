@@ -10,43 +10,42 @@
     <div class="filter-container">
         <!-- Header Section -->
         <div class="filter-header">
-            <!-- Vehicle Type Selector -->
+            <!-- Vehicle Type Selector - Only Car -->
             <div class="vehicle-selector">
                 <div class="vehicle-option active">
                     <input type="radio" id="vehicle-car" name="vehicle-type" value="car" checked>
                     <label for="vehicle-car">
                         <span class="vehicle-icon car-icon"></span>
-                        <span class="vehicle-label">CAR</span>
-                    </label>
-                </div>
-                <div class="vehicle-option">
-                    <input type="radio" id="vehicle-motorcycle" name="vehicle-type" value="motorcycle">
-                    <label for="vehicle-motorcycle">
-                        <span class="vehicle-icon motorcycle-icon"></span>
-                        <span class="vehicle-label">MOTORCYCLE</span>
-                    </label>
-                </div>
-                <div class="vehicle-option">
-                    <input type="radio" id="vehicle-transporter" name="vehicle-type" value="transporter">
-                    <label for="vehicle-transporter">
-                        <span class="vehicle-icon transporter-icon"></span>
-                        <span class="vehicle-label">TRANSPORTER</span>
+                        <span class="vehicle-label">CAR TIRES</span>
                     </label>
                 </div>
             </div>
 
             <!-- Search Type Toggle -->
             <div class="search-toggle">
-                <div class="help-icons">
-                    <button class="help-icon service-help" title="Service Partner Help">?</button>
-                    <button class="help-icon general-help" title="General Help">?</button>
+                <div class="help-icon-wrapper">
+                    <button class="help-icon" title="How to find your tire size">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                        </svg>
+                    </button>
                 </div>
                 <div class="toggle-switch">
                     <input type="checkbox" id="search-type-toggle" class="toggle-input">
                     <label for="search-type-toggle" class="toggle-label">
                         <span class="toggle-slider"></span>
-                        <span class="toggle-text-left">By size</span>
-                        <span class="toggle-text-right">By car model</span>
+                        <span class="toggle-text-left">
+                            <svg class="toggle-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                            By Size
+                        </span>
+                        <span class="toggle-text-right">
+                            <svg class="toggle-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/>
+                            </svg>
+                            By Car Model
+                        </span>
                     </label>
                 </div>
             </div>
@@ -55,16 +54,80 @@
         <!-- Tire Visualization -->
         <div class="tire-display">
             <div class="tire-graphic">
-                <svg class="tire-svg" viewBox="0 0 200 200">
-                    <circle cx="100" cy="100" r="90" fill="#2a2a2a" stroke="#1a1a1a" stroke-width="2"/>
-                    <circle cx="100" cy="100" r="55" fill="#e0e0e0"/>
-                    <circle cx="100" cy="100" r="25" fill="#444"/>
-                    <path d="M 100 45 L 100 155" stroke="#999" stroke-width="3"/>
-                    <path d="M 45 100 L 155 100" stroke="#999" stroke-width="3"/>
-                    <path d="M 65 65 L 135 135" stroke="#999" stroke-width="3"/>
-                    <path d="M 135 65 L 65 135" stroke="#999" stroke-width="3"/>
+                <svg class="tire-svg" viewBox="0 0 240 240">
+                    <!-- Outer tire ring with gradient -->
+                    <defs>
+                        <radialGradient id="tireGradient">
+                            <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+                        </radialGradient>
+                        <radialGradient id="rimGradient">
+                            <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+                        </radialGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- Tire outer circle -->
+                    <circle cx="120" cy="120" r="105" fill="url(#tireGradient)" stroke="#ff8c00" stroke-width="3" opacity="0.9"/>
+
+                    <!-- Tire treads -->
+                    <g opacity="0.3">
+                        <path d="M 120 15 L 120 35" stroke="#666" stroke-width="4"/>
+                        <path d="M 155 20 L 150 38" stroke="#666" stroke-width="4"/>
+                        <path d="M 185 35 L 175 50" stroke="#666" stroke-width="4"/>
+                        <path d="M 208 60 L 193 72" stroke="#666" stroke-width="4"/>
+                        <path d="M 220 95 L 202 102" stroke="#666" stroke-width="4"/>
+                        <path d="M 225 130 L 205 130" stroke="#666" stroke-width="4"/>
+                        <path d="M 220 165 L 202 158" stroke="#666" stroke-width="4"/>
+                        <path d="M 208 200 L 193 188" stroke="#666" stroke-width="4"/>
+                        <path d="M 185 225 L 175 210" stroke="#666" stroke-width="4"/>
+                        <path d="M 155 240 L 150 222" stroke="#666" stroke-width="4"/>
+                        <path d="M 120 245 L 120 225" stroke="#666" stroke-width="4"/>
+                        <path d="M 85 240 L 90 222" stroke="#666" stroke-width="4"/>
+                        <path d="M 55 225 L 65 210" stroke="#666" stroke-width="4"/>
+                        <path d="M 32 200 L 47 188" stroke="#666" stroke-width="4"/>
+                        <path d="M 20 165 L 38 158" stroke="#666" stroke-width="4"/>
+                        <path d="M 15 130 L 35 130" stroke="#666" stroke-width="4"/>
+                        <path d="M 20 95 L 38 102" stroke="#666" stroke-width="4"/>
+                        <path d="M 32 60 L 47 72" stroke="#666" stroke-width="4"/>
+                        <path d="M 55 35 L 65 50" stroke="#666" stroke-width="4"/>
+                        <path d="M 85 20 L 90 38" stroke="#666" stroke-width="4"/>
+                    </g>
+
+                    <!-- Rim -->
+                    <circle cx="120" cy="120" r="65" fill="url(#rimGradient)"/>
+
+                    <!-- Rim spokes with glow -->
+                    <g filter="url(#glow)">
+                        <path d="M 120 55 L 120 185" stroke="#ff8c00" stroke-width="4"/>
+                        <path d="M 55 120 L 185 120" stroke="#ff8c00" stroke-width="4"/>
+                        <path d="M 73 73 L 167 167" stroke="#ff8c00" stroke-width="4"/>
+                        <path d="M 167 73 L 73 167" stroke="#ff8c00" stroke-width="4"/>
+                        <path d="M 82 90 L 158 150" stroke="#ff8c00" stroke-width="3"/>
+                        <path d="M 158 90 L 82 150" stroke="#ff8c00" stroke-width="3"/>
+                        <path d="M 90 82 L 150 158" stroke="#ff8c00" stroke-width="3"/>
+                        <path d="M 150 82 L 90 158" stroke="#ff8c00" stroke-width="3"/>
+                    </g>
+
+                    <!-- Center hub -->
+                    <circle cx="120" cy="120" r="20" fill="#2a2a2a"/>
+                    <circle cx="120" cy="120" r="15" fill="#ff8c00" opacity="0.8"/>
+                    <circle cx="120" cy="120" r="8" fill="#1a1a1a"/>
                 </svg>
-                <div class="tire-size-text">205 / 55 R16</div>
+                <div class="tire-size-text">
+                    <span class="size-highlight">205</span>
+                    <span class="size-separator">/</span>
+                    <span class="size-highlight">55</span>
+                    <span class="size-separator">R</span>
+                    <span class="size-highlight">16</span>
+                </div>
             </div>
         </div>
 
